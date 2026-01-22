@@ -6,7 +6,7 @@ nstains = 2; %Parameter: number of dyes (Hematoxylin-Eosin)
 %PSO: [lambda, fitness_function_gBest, number_of_iterations, execution_time] = PSO(img_histogram, number_particles, fuzzy_parameters, velocity_clamping_factor, cognitive_constant, social_constant, inertia_factor, sparsity_function (sparsity_l2l1, sparsity_hoyer, sparsity_k4 or sparsity_le))
 %WDO: [lambda, globalpressure, number_of_interations, execution_time] = lambda_evaluation_WDO(img_histogram, population, fuzzy_parameters, RT, gravitational_constant, alpha, coriolis_effect, maxVelocity, sparsity_function)
 
-target = imread('C:\Users\tosta\OneDrive\¡rea de Trabalho\Tosta et al. 2024\target.bmp'); %Parameter: Target image for normalization (the sample is from Glas challenge: Sirinukunwattana, Korsuk et al. Gland segmentation in colon histology images: The glas challenge contest. Medical image analysis, v. 35, p. 489-502, 2017.)
+target = imread('C:\Users\tosta\OneDrive\√Årea de Trabalho\Tosta et al. 2024\target.bmp'); %Parameter: Target image for normalization 
 Wtarget_initialization = W_initialization(target);
 for i = 1 : size(Wtarget_initialization,2)
     Wtarget_initialization(:,i) = Wtarget_initialization(:,i)/norm(Wtarget_initialization(:,i), 2);
@@ -17,7 +17,7 @@ lambda = PSO(p,250, 3, 2, 2, 2, 1, 'sparsity_l2l1');
 Wtarget = W_estimation(Wtarget_initialization, Vtarget_forW, nstains, lambda, round(0.001*size(Vtarget_forW,1))); %Parameter: The minibatch can be adjusted (0.001)
 [Htarget,~] = H_estimation(Vtarget_raw, Wtarget, size(target,1), size(target,2));
 
-folder = 'C:\Users\tosta\OneDrive\¡rea de Trabalho\Tosta et al. 2024\samples'; %The source image folder (the samples are from Dong, Fei et al. Computational pathology to discriminate benign from malignant intraductal proliferations of the breast. PloS one, v. 9, n. 12, p. e114885, 2014.)
+folder = 'C:\Users\tosta\OneDrive\√Årea de Trabalho\Tosta et al. 2024\samples'; %The source image folder
 files = dir(fullfile(folder, '*.tif'));
 fileNames = natsortfiles({files.name});
 total = numel(files);
@@ -35,6 +35,6 @@ for m=1:total
 	[Hsource,~] = H_estimation(Vsource_raw, Wsource, size(source,1), size(source,2));
 	[norm_version] = norm_image_generation(source,Htarget,Wtarget,Hsource);
     [~,name,~] = fileparts(char(full_name_org));
-    filename = strcat('C:\Users\tosta\OneDrive\¡rea de Trabalho\Tosta et al. 2024\results\',name,'.png');
+    filename = strcat('C:\Users\tosta\OneDrive\√Årea de Trabalho\Tosta et al. 2024\results\',name,'.png');
     imwrite(norm_version,filename);
 end
