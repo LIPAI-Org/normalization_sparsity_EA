@@ -5,7 +5,8 @@ This repository contains the source code of the paper entitled "Evaluation of sp
 ## Structure
 - Main function: is an editable source code for stain normalization of H&E images with definition of (i) the target image, (ii) the evolutionary algorithm with a sparsity function, and (iii) the source images folder path. The Natural-Order Filename Sort can be found on [MATLAB File Exchange](https://www.mathworks.com/matlabcentral/fileexchange/47434-natural-order-filename-sort);
 - Evolutionary algorithms: the ABC, CS, DE, GA, PSO, and WDO are encrypted source code, but with outputs and inputs specified in the main function for use;
-- Auxiliary functions: the remaining encrypted source codes are responsible for the estimation of the stain color appearance matrix and stain density maps.
+- Auxiliary functions: the remaining encrypted source codes are responsible for the estimation of the stain color appearance matrix and stain density maps;
+- The target image is from the [GlaS Contest](https://www.kaggle.com/datasets/sani84/glasmiccai2015-gland-segmentation).
 
 ## Citation
 For use and distribution, please cite:
